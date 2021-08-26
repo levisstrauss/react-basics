@@ -12,8 +12,11 @@ function App(props) {
                        //  Class components //
                        //////////////////////
 
+
+
  On of the thing to know about class component is that you can change state
- and accessing the element using {this.state}
+ and accessing the element using {this.state} and lifecycle method are the reason of
+ using class based component.
 
 class App extends React.Component {
 
@@ -32,7 +35,11 @@ class App extends React.Component {
 export default App
 
 
-//////////////////
+
+                                 //////////////////////
+                               //  Another example //
+                               //////////////////////
+
 
 import React from "react"
 

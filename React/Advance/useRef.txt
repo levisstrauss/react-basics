@@ -1,0 +1,19 @@
+useRef allows us to get value from the form.
+
+import React, {useState, useRef} from "react"
+
+
+in the functional component
+
+const inputRef = useRef(null)
+
+
+in the input box
+
+ref={inputRef}
+
+
+in the render value place
+
+inputRef.current.focus()
+

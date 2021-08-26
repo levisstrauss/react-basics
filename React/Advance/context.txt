@@ -1,0 +1,158 @@
+in react, data is passed down from parent component to child.
+
+Context provides a way to pass data through the component tree without having to
+pass props down manually at every level.
+
+Because app is the parent component of all component, we can wrap the app
+component with a provider by letting every component consuming it.
+
+
+1 - Create the context in it own file
+
+import React from "react"
+const ThemeContext = React.createContext()
+export default ThemeContext
+
+2 -  Wrap the parent component which is App inside of the index component
+     by providing the value we want to change
+
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+import App from "./App"
+import ThemeContext from "./themeContext"
+
+ReactDOM.render(
+    <ThemeContext.Provider value={"dark"}>
+        <App />
+    </ThemeContext.Provider>,
+    document.getElementById("root")
+)
+
+3 - Because the button component need to use the context, we have to change it
+   which is class component only works with contentType.
+
+import React, {Component} from "react"
+import ThemeContext from "./themeContext"
+
+class Button extends Component {
+    render() {
+        const theme = this.context
+        return (
+            <button className={`${theme}-theme`}>Switch Theme</button>
+        )
+    }
+}
+
+Button.contextType = ThemeContext
+
+export default Button
+
+
+/////////////////////////////////// Another Example ////////////////
+
+1- Create context
+
+import React from "react"
+const UserContext = React.createContext()
+export default UserContext
+
+2- Wrap the app with the provider
+
+import React from "react"
+import ReactDOM from "react-dom"
+
+import App from "./App"
+import UserContext from "./userContext"
+
+/**
+ * Challenge: Set up context to save the user's username and pass it to anywhere that is currently hardcoding "Username".
+ *
+ * Use the static class property `contextType` on any components that need to consume context.
+ * https://reactjs.org/docs/context.html
+ */
+
+ReactDOM.render(
+    <UserContext.Provider value={"bobz123"}>
+        <App />
+    </UserContext.Provider>,
+    document.getElementById("root")
+)
+
+3- Make the app consuming the provider
+
+import React from "react"
+
+import Header from "./Header"
+import UserContext from "./userContext"
+
+class App extends React.Component {
+    static contextType = UserContext
+
+    render() {
+        const username = this.context
+        return (
+            <div>
+                <Header />
+                <main>
+                    <p className="main">No new notifications, {username}! 🎉</p>
+                </main>
+            </div>
+        )
+    }
+}
+
+export default App
+
+
+4- Make the header component consuming the provider
+
+import React, {Component} from "react"
+import UserContext from "./userContext"
+
+class Header extends Component {
+
+    static contextType = UserContext
+
+
+    render() {
+        const username = this.context
+        return (
+            <header>
+                <p>Welcome, {username}!</p>
+            </header>
+        )
+    }
+}
+
+export default Header
+
+
+
+                    //////////////////////////////////
+                    Context using functional component
+                    //////////////////////////////////
+
+import React from "react"
+
+import Header from "./Header"
+import Button from "./Button"
+import ThemeContext from "./themeContext"
+
+function App() {
+    return (
+        <div>
+            <Header />
+            <ThemeContext.Consumer>
+                {theme => (
+                    <Button theme={theme} />
+                )}
+            </ThemeContext.Consumer>
+
+            <Button theme="monkey"/>
+        </div>
+    )
+}
+
+export default App

@@ -1,0 +1,65 @@
+className="navbar"
+
+import "./style.css"
+
+export const data = [1,2,3]; the name of this file is example.js
+
+import { data } from './example.js'; this is how we import the same file here.
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findindex
+
+
+
+
+ * Other modern/advanced React features/topics to learn:
+ *
+ * Official React Context API - https://reactjs.org/docs/context.html
+ * Error Boundaries - https://reactjs.org/docs/error-boundaries.html
+ * render props - https://reactjs.org/docs/render-props.html
+ * Higher Order Components - https://reactjs.org/docs/higher-order-components.html
+ * React Router - https://reacttraining.com/react-router/core/guides/philosophy
+ * React Hooks - https://reactjs.org/docs/hooks-intro.html
+ * React lazy, memo, and Suspense - https://reactjs.org/blog/2018/10/23/react-v-16-6.html
+
+
+// {
+//     history: {
+//         length: 32,
+//         action: "POP",
+//         location: {
+//             pathname: "/",
+//             search: "",
+//             hash: "",
+//             state: null
+//         },
+//         createHref: createHref(location),
+//         push: push(path, state),
+//         replace: replace(path, state),
+//         go: go(n),
+//         goBack: goBack(),
+//         goForward: goForward(),
+//         block: block(prompt),
+//         listen: listen(listener)
+//     },
+//     location: {
+//         pathname: "/",
+//         search: "",
+//         hash: "",
+//         state: null
+//     },
+//     match: {
+//         path: "/",
+//         url: "/",
+//         isExact: true,
+//         params: {}
+//     },
+//     staticContext: null
+// }
+
